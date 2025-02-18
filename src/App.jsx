@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "./components/Button";
-import Input from "./components/Input";
-import Card from "./components/Card";
-import Modal from "./components/Modal";
-import Alert from "./components/Alert";
-import Badge from "./components/Badge";
-import Spinner from "./components/Spinner";
+import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
+import Card from "./components/Card/Card";
+import Modal from "./components/Modal/Modal";
+import Alert from "./components/Alert/Alert";
+import Badge from "./components/Badge/Badge";
+import Spinner from "./components/Spinner/Spinner";
 import "./App.css";
 
 function App() {
