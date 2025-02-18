@@ -22,6 +22,10 @@ import DatePicker from "./components/DatePicker";
 import Textarea from "./components/Textarea";
 import FileUpload from "./components/FileUpload/FileUpload";
 import RadioGroup from "./components/RadioGroup";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Snackbar from "./components/Snackbar/Snackbar";
+import PieChart from "./components/PieChart/PieChart";
+import LineChart from "./components/LineChart/LineChart";
 
 export {
   Button,
@@ -48,4 +52,8 @@ export {
   Textarea,
   FileUpload,
   RadioGroup,
+  Sidebar,
+  Snackbar,
+  PieChart,
+  LineChart,
 };

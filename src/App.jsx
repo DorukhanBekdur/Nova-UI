@@ -24,6 +24,10 @@ import {
   Textarea,
   FileUpload,
   RadioGroup,
+  Sidebar,
+  Snackbar,
+  PieChart,
+  LineChart,
 } from "./index";
 import "./App.css";
 
@@ -75,6 +79,15 @@ function App() {
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
   ];
+
+  const data = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
+  ];
+
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   return (
     <>
@@ -276,6 +289,51 @@ function App() {
         />
         <p>Selected Option: {selectedOption}</p>
       </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Open Sidebar
+        </button>
+
+        <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <h2 className="text-lg font-semibold">Sidebar Menu</h2>
+          <ul className="mt-4 space-y-2">
+            <li className="hover:text-blue-500 cursor-pointer">Dashboard</li>
+            <li className="hover:text-blue-500 cursor-pointer">Settings</li>
+            <li className="hover:text-blue-500 cursor-pointer">Logout</li>
+          </ul>
+        </Sidebar>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <button
+          onClick={() => setShowSnackbar(true)}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Show Snackbar
+        </button>
+
+        {showSnackbar && (
+          <Snackbar
+            message="This is a snackbar!"
+            type="success"
+            duration={3000}
+            onClose={() => setShowSnackbar(false)}
+          />
+        )}
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <PieChart data={data} />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+      <h2 className="text-lg font-semibold">Monthly Sales</h2>
+      <LineChart data={data} />
+    </div>
     </>
   );
 }
