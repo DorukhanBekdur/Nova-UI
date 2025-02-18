@@ -21,6 +21,9 @@ import {
   Rating,
   Breadcrumb,
   DatePicker,
+  Textarea,
+  FileUpload,
+  RadioGroup,
 } from "./index";
 import "./App.css";
 
@@ -60,6 +63,18 @@ function App() {
   ];
 
   const [date, setDate] = useState("");
+
+  const [text, setText] = useState("");
+
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const [selectedOption, setSelectedOption] = useState("option1");
+
+  const options = [
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" },
+  ];
 
   return (
     <>
@@ -235,6 +250,31 @@ function App() {
       <div className="flex flex-col items-center gap-4 p-10">
         <DatePicker value={date} onChange={setDate} />
         <p>Selected Date: {date}</p>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Textarea
+          label="Your Message"
+          value={text}
+          onChange={setText}
+          placeholder="Type your message..."
+        />
+        <p>Typed Text: {text}</p>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <FileUpload label="Upload File" onFileSelect={setSelectedFile} />
+        {selectedFile && <p>Selected File: {selectedFile.name}</p>}
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <RadioGroup
+          label="Select an option"
+          options={options}
+          selectedValue={selectedOption}
+          onChange={setSelectedOption}
+        />
+        <p>Selected Option: {selectedOption}</p>
       </div>
     </>
   );

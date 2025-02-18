@@ -12,14 +12,16 @@ import Toast from "./components/Toast";
 import ProgressBar from "./components/Progressbar";
 import Tabs from "./components/Tabs";
 import Switch from "./components/Switch";
-import BadgeCounter from "./components/Badgecounter/BadgeCounter";
-import Stepper from "./components/Stepper/Stepper";
-import Drawer from "./components/Drawer/Drawer";
+import BadgeCounter from "./components/BadgeCounter";
+import Stepper from "./components/Stepper";
+import Drawer from "./components/Drawer";
 import Slider from "./components/Slider";
-import Rating from "./components/Rating/Rating";
-import Breadcrumb from "./components/Breadcrumb/BreadCrumb";
-import DatePicker from "./components/DatePicker/DatePicker";
-
+import Rating from "./components/Rating";
+import Breadcrumb from "./components/BreadCrumb";
+import DatePicker from "./components/DatePicker";
+import Textarea from "./components/Textarea";
+import FileUpload from "./components/FileUpload/FileUpload";
+import RadioGroup from "./components/RadioGroup";
 
 export {
   Button,
@@ -43,4 +45,7 @@ export {
   Rating,
   Breadcrumb,
   DatePicker,
+  Textarea,
+  FileUpload,
+  RadioGroup,
 };
