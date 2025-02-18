@@ -15,6 +15,8 @@ import {
   Tabs,
   Switch,
   BadgeCounter,
+  Stepper,
+  Drawer,
 } from "./index";
 import "./App.css";
 
@@ -37,6 +39,11 @@ function App() {
   ];
 
   const [isEnabled, setIsEnabled] = useState(false);
+
+  const steps = ["Start", "Processing", "Review", "Complete"];
+  const [activeStep, setActiveStep] = useState(1);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -167,6 +174,32 @@ function App() {
             className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2"
           />
         </div>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Stepper steps={steps} activeStep={activeStep} />
+        <button
+          onClick={() =>
+            setActiveStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev))
+          }
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Next Step
+        </button>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Open Drawer
+        </button>
+
+        <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <h2 className="text-lg font-semibold">Drawer Content</h2>
+          <p>This is some content inside the drawer.</p>
+        </Drawer>
       </div>
     </>
   );
