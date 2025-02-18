@@ -1,11 +1,5 @@
 import { useState } from "react";
-import Button from "./components/Button/Button";
-import Input from "./components/Input/Input";
-import Card from "./components/Card/Card";
-import Modal from "./components/Modal/Modal";
-import Alert from "./components/Alert/Alert";
-import Badge from "./components/Badge/Badge";
-import Spinner from "./components/Spinner/Spinner";
+import { Button, Tooltip, Accordion, Avatar , Alert , Badge , Card , Input , Modal , Spinner } from "./index";
 import "./App.css";
 
 function App() {
@@ -66,6 +60,37 @@ function App() {
         <Spinner size="sm" />
         <Spinner size="md" />
         <Spinner size="lg" />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Tooltip text="This is a tooltip" position="top">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg">
+            Hover Me
+          </button>
+        </Tooltip>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Accordion title="What is Nova-UI?">
+          <p>
+            Nova-UI is a modern React component library built with Tailwind CSS.
+          </p>
+        </Accordion>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Avatar
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          size="sm"
+        />
+        <Avatar
+          src="https://randomuser.me/api/portraits/women/44.jpg"
+          size="md"
+        />
+        <Avatar
+          src="https://randomuser.me/api/portraits/men/56.jpg"
+          size="lg"
+        />
       </div>
     </>
   );
