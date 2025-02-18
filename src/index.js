@@ -18,6 +18,8 @@ import Drawer from "./components/Drawer/Drawer";
 import Slider from "./components/Slider";
 import Rating from "./components/Rating/Rating";
 import Breadcrumb from "./components/Breadcrumb/BreadCrumb";
+import DatePicker from "./components/DatePicker/DatePicker";
+
 
 export {
   Button,
@@ -40,4 +42,5 @@ export {
   Slider,
   Rating,
   Breadcrumb,
+  DatePicker,
 };

@@ -20,6 +20,7 @@ import {
   Slider,
   Rating,
   Breadcrumb,
+  DatePicker,
 } from "./index";
 import "./App.css";
 
@@ -57,6 +58,8 @@ function App() {
     { label: "Category", href: "/category" },
     { label: "Product", href: "/product" },
   ];
+
+  const [date, setDate] = useState("");
 
   return (
     <>
@@ -227,6 +230,11 @@ function App() {
 
       <div className="flex flex-col items-center gap-4 p-10">
         <Breadcrumb items={breadcrumbItems} />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <DatePicker value={date} onChange={setDate} />
+        <p>Selected Date: {date}</p>
       </div>
     </>
   );
