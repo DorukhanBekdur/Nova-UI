@@ -8,5 +8,7 @@ import Spinner from "./components/Spinner";
 import Tooltip from "./components/Tooltip";
 import Accordion from "./components/Accordion";
 import Avatar from "./components/Avatar";
+import Toast from "./components/Toast";
+import ProgressBar from "./components/Progressbar";
 
-export { Button, Input, Card, Modal, Alert, Badge, Spinner, Tooltip, Accordion, Avatar };
+export { Button, Input, Card, Modal, Alert, Badge, Spinner, Tooltip, Accordion, Avatar , Toast , ProgressBar };

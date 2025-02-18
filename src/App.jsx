@@ -1,9 +1,31 @@
-import { useState } from "react";
-import { Button, Tooltip, Accordion, Avatar , Alert , Badge , Card , Input , Modal , Spinner } from "./index";
+import { useState, useEffect } from "react";
+import {
+  Button,
+  Tooltip,
+  Accordion,
+  Avatar,
+  Alert,
+  Badge,
+  Card,
+  Input,
+  Modal,
+  Spinner,
+  Toast,
+  ProgressBar,
+} from "./index";
 import "./App.css";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [progress, setProgress] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => (prev < 100 ? prev + 10 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -91,6 +113,28 @@ function App() {
           src="https://randomuser.me/api/portraits/men/56.jpg"
           size="lg"
         />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <button
+          onClick={() => setShowToast(true)}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Show Toast
+        </button>
+
+        {showToast && (
+          <Toast
+            message="This is an info toast!"
+            type="info"
+            duration={3000}
+            onClose={() => setShowToast(false)}
+          />
+        )}
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <ProgressBar value={progress} max={100} color="blue" />
       </div>
     </>
   );
