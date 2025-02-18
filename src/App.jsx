@@ -17,6 +17,9 @@ import {
   BadgeCounter,
   Stepper,
   Drawer,
+  Slider,
+  Rating,
+  Breadcrumb,
 } from "./index";
 import "./App.css";
 
@@ -44,6 +47,16 @@ function App() {
   const [activeStep, setActiveStep] = useState(1);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const [value, setValue] = useState(50);
+
+  const [rating, setRating] = useState(3);
+
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Category", href: "/category" },
+    { label: "Product", href: "/product" },
+  ];
 
   return (
     <>
@@ -200,6 +213,20 @@ function App() {
           <h2 className="text-lg font-semibold">Drawer Content</h2>
           <p>This is some content inside the drawer.</p>
         </Drawer>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Slider value={value} min={0} max={100} step={5} onChange={setValue} />
+        <p>Selected Value: {value}</p>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Rating max={5} value={rating} onChange={setRating} />
+        <p>Selected Rating: {rating}</p>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Breadcrumb items={breadcrumbItems} />
       </div>
     </>
   );
