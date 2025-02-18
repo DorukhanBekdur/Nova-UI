@@ -12,6 +12,9 @@ import {
   Spinner,
   Toast,
   ProgressBar,
+  Tabs,
+  Switch,
+  BadgeCounter,
 } from "./index";
 import "./App.css";
 
@@ -26,6 +29,14 @@ function App() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const tabItems = [
+    { label: "Home", content: <p>Welcome to the home page!</p> },
+    { label: "Profile", content: <p>This is your profile section.</p> },
+    { label: "Settings", content: <p>Manage your settings here.</p> },
+  ];
+
+  const [isEnabled, setIsEnabled] = useState(false);
 
   return (
     <>
@@ -135,6 +146,27 @@ function App() {
 
       <div className="flex flex-col items-center gap-4 p-10">
         <ProgressBar value={progress} max={100} color="blue" />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Tabs tabs={tabItems} defaultIndex={0} />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <Switch checked={isEnabled} onChange={setIsEnabled} />
+        <p>Switch is {isEnabled ? "ON" : "OFF"}</p>
+      </div>
+
+      <div className="flex flex-col items-center gap-4 p-10">
+        <div className="relative">
+          <span className="px-4 py-2 bg-gray-300 rounded-lg">
+            Notifications
+          </span>
+          <BadgeCounter
+            count={5}
+            className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2"
+          />
+        </div>
       </div>
     </>
   );
